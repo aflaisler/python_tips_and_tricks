@@ -1,6 +1,11 @@
 from __future__ import division
 import pandas as pd
 import numpy as np
+import json
+import collections
+import random
+import heapq
+
 
 # non unique elements in list
 non_unique = [item for item, count in Counter(lst).items() if count > 1]
@@ -51,3 +56,57 @@ NameError: an unknown variable is used
 SyntaxError: the code can't be parsed properly
 TypeError: a function is called on a value of an inappropriate type
 ValueError: a function is called on a value of the correct type, but with an inappropriate value
+
+# extended unpacking (py3)
+a, *b, c = [1, 2, 3, 4, 5]
+
+# format function
+for i, x in enumerate(a):
+    print '{}: {}'.format(i, x)
+
+# Inverting a dictionary using zip
+mi = dict(zip(m.values(), m.keys()))
+
+# Flattening lists
+[x for l in lst for x in l]
+flatten(lst)
+
+# set and set operations
+A = set(range(5))
+B = set(range(4, 10))
+A - B
+A | B
+
+# Most common elements in an iterable (collections.Counter) &
+# collections.defaultdict
+A = Counter([1, 1, 2, 2, 3, 3, 3, 3, 4, 5, 6, 7])
+A.most_common(1)
+m = collections.defaultdict(str)
+
+# Using default dictionaries to represent simple trees
+tree = lambda: collections.defaultdict(tree)
+root = tree()
+root['menu']['id'] = 'file'
+root['menu']['value'] = 'File'
+root['menu']['menuitems']['new']['value'] = 'New'
+root['menu']['menuitems']['new']['onclick'] = 'new();'
+print json.dumps(root, sort_keys=True, indent=4, separators=(',', ': '))
+
+# Largest and smallest elements (heapq.nlargest and heapq.nsmallest)
+a = np.random.randint(0, 100, size=100)
+print heapq.nsmallest(5, a)
+print heapq.nlargest(5, a)
+
+# Combinations, combinations with replacement, Permutations
+for c in itertools.combinations([1, 2, 3, 4, 5], 3):
+    print ''.join(str(x) for x in c)
+
+for c in itertools.combinations_with_replacement([1, 2, 3], 2):
+    print ''.join(str(x) for x in c)
+
+for p in itertools.permutations([1, 2, 3, 4]):
+    print ''.join(str(x) for x in p)
+
+
+# The zen of python
+import this
