@@ -107,6 +107,16 @@ for c in itertools.combinations_with_replacement([1, 2, 3], 2):
 for p in itertools.permutations([1, 2, 3, 4]):
     print ''.join(str(x) for x in p)
 
+# Acyclic graphs and critical paths
+
+
+def solve(pyramid):
+    while len(pyramid) > 1:
+        t0 = pyramid.pop()
+        t1 = pyramid.pop()
+        pyramid.append([max(t0[i], t0[i + 1]) + t for i, t in enumerate(t1)])
+    return pyramid[0][0]
+
 
 # The zen of python
 import this
