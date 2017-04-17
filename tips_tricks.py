@@ -5,7 +5,7 @@ import json
 import collections
 import random
 import heapq
-
+pd.set_option('display.max_columns', None)
 
 # non unique elements in list
 non_unique = [item for item, count in Counter(lst).items() if count > 1]
@@ -114,6 +114,9 @@ while len(pyramid) > 1:
     pyramid.append([max(t0[i], t0[i + 1]) + t for i, t in enumerate(t1)])
 # return pyramid[0][0]
 
+# min max of rest of array
+[min([a for a in array[i + 1:] if a > array[i]], default=-1)
+ for i in range(len(array))]
 
 # The zen of python
 import this
