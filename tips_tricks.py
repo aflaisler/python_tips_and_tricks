@@ -5,7 +5,24 @@ import json
 import collections
 import random
 import heapq
+from pandas_summary import DataFrameSummary
 pd.set_option('display.max_columns', None)
+
+
+# cPickle
+# to save something
+with open('model.pkl', 'w') as f:
+    pickle.dump(model, f)
+# to reload
+with open('model.pkl') as f:
+    model = pickle.load(f)
+# (model.predict(...))
+
+# EDA made easy
+dfs = DataFrameSummary()
+dfs.columns_stats()
+# or
+df.describe()
 
 # non unique elements in list
 non_unique = [item for item, count in Counter(lst).items() if count > 1]
