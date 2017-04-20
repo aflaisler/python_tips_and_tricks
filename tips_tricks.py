@@ -137,3 +137,7 @@ while len(pyramid) > 1:
 
 # The zen of python
 import this
+
+# python debugger
+import pdb
+# then add this "pdb.set_trace()" where you want to set trace
