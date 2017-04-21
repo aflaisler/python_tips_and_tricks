@@ -42,7 +42,7 @@ def merge(lst_1, lst_2):
     return lst_out
 
 
-# Pyramid Slide Down
+# Pyramid Slide Down (Acyclic graphs and critical paths)
 tri = [[3], [7, 4], [2, 4, 6], [8, 5, 9, 3]]
 
 

@@ -124,12 +124,6 @@ for c in itertools.combinations_with_replacement([1, 2, 3], 2):
 for p in itertools.permutations([1, 2, 3, 4]):
     print ''.join(str(x) for x in p)
 
-# Acyclic graphs and critical paths
-while len(pyramid) > 1:
-    t0 = pyramid.pop()
-    t1 = pyramid.pop()
-    pyramid.append([max(t0[i], t0[i + 1]) + t for i, t in enumerate(t1)])
-# return pyramid[0][0]
 
 # min max of rest of array
 [min([a for a in array[i + 1:] if a > array[i]], default=-1)
@@ -141,3 +135,22 @@ import this
 # python debugger
 import pdb
 # then add this "pdb.set_trace()" where you want to set trace
+
+# Draw graphs (ipython)
+import matplotlib.pyplot as plt  # Standard Python Library for working with graphs
+import networkx as nx  # Helper library to visualize graphs
+import nxpd
+plt.style.use('ggplot')
+
+g_adj = {
+    0: {1, 4},
+    1: {0, 2, 3},
+    2: {1, 3, 5},
+    3: {1, 2, 4},
+    4: {0, 3, 4},
+    5: {2}}
+
+# Draw left to right when possible, fits better in notebook
+G = nx.from_dict_of_lists(g_adj)
+G.graph['rankdir'] = 'LR'
+nxpd.draw(G, show='ipynb')
