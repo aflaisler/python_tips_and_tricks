@@ -42,5 +42,15 @@ def merge(lst_1, lst_2):
     return lst_out
 
 
-print lst
-sort(lst)
+# Pyramid Slide Down
+tri = [[3], [7, 4], [2, 4, 6], [8, 5, 9, 3]]
+
+
+def longestSlideDown(tri):
+    while len(tri) > 1:
+        n = len(tri) - 1
+        x = tri.pop(n)
+        y = tri.pop(n - 1)
+        tri.append([max(y[i] + x[i], y[i] + x[i + 1]) for i in range(len(y))])
+        # print tri
+    return tri[0].pop()
