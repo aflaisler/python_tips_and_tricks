@@ -6,6 +6,7 @@ import collections
 import random
 import heapq
 from pandas_summary import DataFrameSummary
+import itertools
 pd.set_option('display.max_columns', None)
 
 
@@ -154,3 +155,27 @@ g_adj = {
 G = nx.from_dict_of_lists(g_adj)
 G.graph['rankdir'] = 'LR'
 nxpd.draw(G, show='ipynb')
+
+# To time functions
+# Method 0 (iPython)
+import timeit
+%timeit - n30 - r 4 fact(900)  # return: 30 loops, best of 4: 1.05 ms per loop
+# Method 1
+import time
+t1 = time.time()
+math.factorial(900)
+t2 = time.time()
+print 'math factorial took {} seconds'.format(t2 - t1)
+# Method 2
+<parameter >  # (for example: 'xrange(100000000, 101000000)')
+
+# Make a list of functions to time.
+# callables without args...
+funcs = [ < func_1 > , < func_2 > ]
+tests = [(test_func.__name__, test_func) for test_func in funcs]
+
+for name, test in tests:
+    # We have to do this because Timer takes a callable as an arg.
+    t = Timer(lambda: test(< parameter > ))
+    print "Completed {name} in {time} seconds.".format(name=name,
+                                                       time=t.timeit(1))
