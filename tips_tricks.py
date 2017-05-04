@@ -167,6 +167,7 @@ math.factorial(900)
 t2 = time.time()
 print 'math factorial took {} seconds'.format(t2 - t1)
 # Method 2
+from timeit import Timer
 <parameter >  # (for example: 'xrange(100000000, 101000000)')
 
 # Make a list of functions to time.
