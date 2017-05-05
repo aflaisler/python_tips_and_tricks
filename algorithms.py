@@ -7,6 +7,7 @@ import random
 import heapq
 from pandas_summary import DataFrameSummary
 import pdb
+from collections import deque
 pd.set_option('display.max_columns', None)
 
 
@@ -65,7 +66,8 @@ g_adj = {
     3: {1, 2, 4},
     4: {0, 3, 4},
     5: {2}}
-G = nx.from_dict_of_lists(g_adj) # example graph
+G = nx.from_dict_of_lists(g_adj)  # example graph
+
 
 def breadth_first_traversal(G, initial_node=0):
     Q = deque([initial_node])
@@ -79,9 +81,10 @@ def breadth_first_traversal(G, initial_node=0):
             Q.extend(G.neighbors(node))
     return visited
 
+
 def depth_first_traversal(G, initial_node=0):
     S = deque([initial_node])
-    visited=[]
+    visited = []
     while S:
         node = S.pop()
         if node not in visited:

@@ -204,4 +204,9 @@ python - m memory_profiler example.py
 # to plot memory usage
 mprof run < exec.py >
 mprof plot
-#
+
+# sorted with lambda for the 'move zeros to the end' pb
+
+
+def move_zeros(array):
+    return sorted(array, key=lambda x: x == 0 and type(x) is not bool)
