@@ -135,6 +135,7 @@ import this
 
 # python debugger
 import pdb
+pdb.set_trace()
 # then add this "pdb.set_trace()" where you want to set trace
 
 # Draw graphs (ipython)
