@@ -173,12 +173,12 @@ from timeit import Timer
 
 # Make a list of functions to time.
 # callables without args...
-funcs = [ < func_1 > , < func_2 > ]
+funcs = [< func_1 > , < func_2 > ]
 tests = [(test_func.__name__, test_func) for test_func in funcs]
 
 for name, test in tests:
     # We have to do this because Timer takes a callable as an arg.
-    t = Timer(lambda: test(< parameter > ))
+    t = Timer(lambda: test( < parameter > ))
     print "Completed {name} in {time} seconds.".format(name=name,
                                                        time=t.timeit(1))
 
@@ -205,6 +205,9 @@ python - m memory_profiler example.py
 # to plot memory usage
 mprof run < exec.py >
 mprof plot
+
+# dictionary comprehension
+{k: chr(k) for k in range(65, 91)}
 
 # sorted with lambda for the 'move zeros to the end' pb
 
