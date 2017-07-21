@@ -219,3 +219,18 @@ def move_zeros(array):
 # Python Pandas How to select rows with one or more nulls
 df.isnull().any(axis=1)
 df.dropna(thresh=2)
+
+# Pandas get the rows of dataframe1 which are not in dataframe2?
+df1[(~df1.col1.isin(common.col1)) & (~df1.col2.isin(common.col2))]
+
+# inverse cumulative proba distribution
+import scipy.stats as scs
+scs.t.ppf(1 - 0.025, 9)
+
+
+def mean_confidence_interval(data, confidence=0.95):
+    a = 1.0 * np.array(data)
+    n = len(a)
+    m, se = np.mean(a), scs.sem(a)
+    h = se * scs.t.ppf((1 + confidence) / 2., n - 1)
+    return m, m - h, m + h
